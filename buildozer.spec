@@ -4,10 +4,10 @@
 title = CALCULATOR 2024
 
 # (str) Package name
-package.name = mahakal_baba_12
+package.name = mahakal_baba_24
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = com.jai_mahakal_bhole_baba
+package.domain = com.jai_mahakal_bholenath
 
 # (str) Source code where the main.py live
 source.dir = .
@@ -44,7 +44,7 @@ requirements = python3,kivy,kivymd,requests
 # requirements.source.kivy = ../../kivy
 
 # (str) Presplash of the application
-#presplash.filename = %(source.dir)s/data/presplash.png
+presplash.filename = %(source.dir)s/assests/pres.png
 
 # (str) Icon of the application
 icon.filename = %(source.dir)s/assests/icon.png
