@@ -4,10 +4,10 @@
 title = CALCULATOR 2024
 
 # (str) Package name
-package.name = mahakal_baba_24
+package.name = mahakal_baba_25
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = com.jai_mahakal_bholenath
+package.domain = com.jai_mahakal_bholenath_baba
 
 # (str) Source code where the main.py live
 source.dir = .
