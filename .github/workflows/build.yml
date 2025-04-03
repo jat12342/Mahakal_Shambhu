@@ -1,40 +1,20 @@
-
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y build-essential python3-pip
-          pip3 install --upgrade pip
-          pip3 install buildozer
-
+      - uses: actions/checkout@v2
       - name: Build APK
-        run: |
-          buildozer init
-          buildozer android debug
-
-      - name: Upload APK to GitHub Releases
-        uses: actions/upload-artifact@v2
+        uses: digreatbrian/buildozer-action@v1
         with:
-          name: app-debug.apk
-          path: ./buildozer/android/app/build/outputs/apk/debug/app-debug.apk
+          buildozer-cmd: buildozer -v android debug
+          work-dir: . # directory where your main.py file rests
 
-      - name: Create GitHub Release
-        uses: actions/create-release@v1
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          tag_name: v1.0
-          release_name: Release v1.0
-          draft: false
-          prerelease: false
-          
+          name: package
+          path: ./bin/*.apk
